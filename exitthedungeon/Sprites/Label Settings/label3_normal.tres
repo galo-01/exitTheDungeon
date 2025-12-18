@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://eel80ghwbypo"]
+
+[ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="1_dcwf0"]
+
+[resource]
+font = ExtResource("1_dcwf0")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)

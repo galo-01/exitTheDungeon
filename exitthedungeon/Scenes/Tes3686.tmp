@@ -1,0 +1,180 @@
+[gd_scene load_steps=13 format=3 uid="uid://b28wgg8vsvahw"]
+
+[ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card.tscn" id="1_ac6jj"]
+[ext_resource type="Script" path="res://Code/card_manager.gd" id="1_c3chp"]
+[ext_resource type="Script" path="res://Code/hero.gd" id="2_bja64"]
+[ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/healthIcon1.png" id="2_txy4r"]
+[ext_resource type="Script" path="res://Code/cards_container.gd" id="3_1dfm8"]
+[ext_resource type="LabelSettings" uid="uid://kfihbm5bi7c3" path="res://Sprites/Label Settings/label1_normal.tres" id="6_bo4sg"]
+[ext_resource type="LabelSettings" uid="uid://cg46jtso5i2j3" path="res://Sprites/Label Settings/label2_small.tres" id="7_4sdm5"]
+[ext_resource type="Texture2D" uid="uid://bvwblna6aqlye" path="res://Sprites/handCard.png" id="7_d8wla"]
+
+[sub_resource type="Animation" id="Animation_qmqw4"]
+resource_name = "attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(81, 50), Vector2(81, 55), Vector2(81, 30), Vector2(81, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1), Vector2(0.8, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jjqxo"]
+resource_name = "change"
+length = 0.17
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.139626, -0.0872665, 0.0523599, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bgy5b"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(81, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_88qcc"]
+_data = {
+"attack": SubResource("Animation_qmqw4"),
+"change": SubResource("Animation_jjqxo"),
+"idle": SubResource("Animation_bgy5b")
+}
+
+[node name="Test1" type="Node2D"]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_c3chp")
+Card = ExtResource("1_ac6jj")
+
+[node name="CardsContainer" type="Node2D" parent="CardManager"]
+position = Vector2(206, 35)
+script = ExtResource("3_1dfm8")
+
+[node name="You" type="Node2D" parent="."]
+position = Vector2(24, 150)
+script = ExtResource("2_bja64")
+
+[node name="Health" type="Node2D" parent="You"]
+position = Vector2(33, 30)
+
+[node name="Heart" type="Sprite2D" parent="You/Health"]
+texture = ExtResource("2_txy4r")
+
+[node name="CurrentHealth" type="Label" parent="You/Health"]
+offset_left = 23.0
+offset_top = -10.0
+offset_right = 63.0
+offset_bottom = 13.0
+text = "20"
+label_settings = ExtResource("6_bo4sg")
+
+[node name="MaxHealth" type="Label" parent="You/Health/CurrentHealth"]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 58.0
+offset_bottom = 23.0
+text = "/20"
+label_settings = ExtResource("7_4sdm5")
+
+[node name="Hand" type="Node2D" parent="You"]
+position = Vector2(137, -1)
+
+[node name="Sprite" type="Sprite2D" parent="You/Hand"]
+position = Vector2(81, 50)
+texture = ExtResource("7_d8wla")
+hframes = 2
+
+[node name="Damage" type="Label" parent="You/Hand/Sprite"]
+offset_left = -10.0
+offset_top = 33.0
+offset_right = 30.0
+offset_bottom = 49.0
+text = "7
+"
+label_settings = ExtResource("6_bo4sg")
+horizontal_alignment = 2
+
+[node name="Animator" type="AnimationPlayer" parent="You/Hand"]
+libraries = {
+"": SubResource("AnimationLibrary_88qcc")
+}
+
+[node name="MaxLevel" type="Label" parent="You/Hand"]
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 160.0
+offset_bottom = 26.0
+text = "Max ∞"
+label_settings = ExtResource("7_4sdm5")

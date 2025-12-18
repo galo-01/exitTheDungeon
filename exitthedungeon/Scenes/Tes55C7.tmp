@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://b28wgg8vsvahw"]
+
+[ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card.tscn" id="1_ac6jj"]
+[ext_resource type="Script" path="res://Code/card_manager.gd" id="1_c3chp"]
+[ext_resource type="Script" path="res://Code/hero.gd" id="2_bja64"]
+[ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/healthIcon1.png" id="2_txy4r"]
+[ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="3_kndq3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fud8m"]
+font = ExtResource("3_kndq3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3kxhk"]
+font = ExtResource("3_kndq3")
+font_size = 9
+
+[node name="Test1" type="Node2D"]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_c3chp")
+
+[node name="CardContainer" type="HBoxContainer" parent="CardManager"]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Card" parent="CardManager/CardContainer" instance=ExtResource("1_ac6jj")]
+position = Vector2(44, 35)
+
+[node name="Card2" parent="CardManager/CardContainer" instance=ExtResource("1_ac6jj")]
+position = Vector2(129, 35)
+
+[node name="Card3" parent="CardManager/CardContainer" instance=ExtResource("1_ac6jj")]
+position = Vector2(210, 34)
+
+[node name="Card4" parent="CardManager/CardContainer" instance=ExtResource("1_ac6jj")]
+position = Vector2(286, 34)
+
+[node name="Card5" parent="CardManager/CardContainer" instance=ExtResource("1_ac6jj")]
+position = Vector2(365, 32)
+
+[node name="You" type="Node2D" parent="."]
+position = Vector2(24, 150)
+script = ExtResource("2_bja64")
+
+[node name="Health" type="Node2D" parent="You"]
+position = Vector2(33, 30)
+
+[node name="Heart" type="Sprite2D" parent="You/Health"]
+texture = ExtResource("2_txy4r")
+
+[node name="CurrentHealth" type="Label" parent="You/Health"]
+offset_left = 23.0
+offset_top = -10.0
+offset_right = 63.0
+offset_bottom = 13.0
+text = "20"
+label_settings = SubResource("LabelSettings_fud8m")
+
+[node name="MaxHealth" type="Label" parent="You/Health/CurrentHealth"]
+layout_mode = 0
+offset_left = 18.0
+offset_right = 58.0
+offset_bottom = 23.0
+text = "/20"
+label_settings = SubResource("LabelSettings_3kxhk")
