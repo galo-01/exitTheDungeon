@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://d3jhioa2lghyn"]
 
-[ext_resource type="Script" path="res://Code/cardData.gd" id="1_hnl1x"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="1_hnl1x"]
 [ext_resource type="Texture2D" uid="uid://n2nbuxi4vv0l" path="res://Sprites/Cards/card_potion_minor.png" id="2_g2kr3"]
 
 [resource]

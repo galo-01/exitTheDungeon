@@ -13,18 +13,22 @@ func _ready() -> void:
 	$Animator.play('idle')
 
 
-func set_card(data: CardData):
+func set_card(cardObj: CardObject):
 	
 	# 1) Level and type from the card data
-	type = data.type
-	level = randi_range(data.min_level, data.max_level)
+	type = cardObj.data.type
+	level = cardObj.level
 	
 	print(level)
 	
+	
 	# 2) Set texture and level visuals
-	$Sprite.texture = data.texture
-	LevelLabel.text = str(level)
+	$Sprite.texture = cardObj.data.texture
+	LevelLabel.text = str(cardObj.level)
 	$Animator.play('idle')
+
+
+
 
 # ---------------------------------------------------------------- Click
 

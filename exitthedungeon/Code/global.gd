@@ -12,8 +12,9 @@ var player_max_weapon_damage = 999
 
 # ------------------------------------------------------------ DECK BOULDING
 
-var full_deck = [] # will be the sum fo player_deck and enemy_deck
-var cards_on_table = []
+
+var player_deck = [] # not used yet
+var table_cards: Array[CardObject] = []
 
 # ------------------------------------------------------------- CARD ACTIONS
 

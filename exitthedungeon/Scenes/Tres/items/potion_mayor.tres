@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://deohwbgeuac4g"]
 
-[ext_resource type="Script" path="res://Code/cardData.gd" id="1_8hmpn"]
-[ext_resource type="Texture2D" uid="uid://n2nbuxi4vv0l" path="res://Sprites/Cards/card_potion_minor.png" id="2_uwkki"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="1_xkn5m"]
+[ext_resource type="Texture2D" uid="uid://dmm2pc0r1hn75" path="res://Sprites/Cards/card_potion_mayor.png" id="2_qmpao"]
 
 [resource]
-script = ExtResource("1_8hmpn")
+script = ExtResource("1_xkn5m")
 type = "potion"
-texture = ExtResource("2_uwkki")
-min_level = 4
-max_level = 6
+texture = ExtResource("2_qmpao")
+min_level = 5
+max_level = 8

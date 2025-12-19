@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cn7xin2cd04il"]
 
-[ext_resource type="Script" path="res://Code/cardData.gd" id="1_rjv62"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="1_af10b"]
 [ext_resource type="Texture2D" uid="uid://dxwsxfrx5vgfy" path="res://Sprites/Cards/card_sword1.png" id="2_4ehq2"]
 
 [resource]
-script = ExtResource("1_rjv62")
+script = ExtResource("1_af10b")
 type = "weapon"
 texture = ExtResource("2_4ehq2")
-min_level = 1
+min_level = 2
 max_level = 8

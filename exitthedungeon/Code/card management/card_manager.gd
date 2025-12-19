@@ -4,9 +4,10 @@ extends Node2D #(CardManager)
 @onready var CardContainer = $CardsContainer
 
 
-
 @export var cards_pool: Array[CardData] # NEW array of posible cards
 
+
+var deck: Array[CardObject] = []
 
 
 func _ready() -> void:
@@ -23,7 +24,7 @@ func add_new_cards(num):
 	print('------------')
 	for i in num:
 		
-		# Create card and add to CardContainer
+		# Create card NODE and add to CardContainer
 		var card_instance = Card.instantiate()
 		
 		# Add card to CardContainer
@@ -32,8 +33,11 @@ func add_new_cards(num):
 		# Choose a card from the card_pool
 		var card_data = cards_pool[randi_range(0,cards_pool.size()-1)]
 		
-		# give cardData to the card created
-		card_instance.set_card(card_data)
+		# Create a card OBJECT and give it the card_data
+		var card_obj = CardObject.new(card_data)
+		
+		# give card_obj to the card created
+		card_instance.set_card(card_obj)
 		
 	
 	# Update layout after all cards were added
