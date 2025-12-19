@@ -5,8 +5,6 @@ extends Node2D #(CardContainer)
 @export var animation_time := 0.2
 var tween: Tween
 
-
-
 func add_card(card: Node):
 	add_child(card)
 	
@@ -14,7 +12,7 @@ func add_card(card: Node):
 	
 	layout_cards()
 
-func layout_cards():
+func layout_cards(): 
 	var cards := get_children()
 	var count := cards.size()
 	if count == 0:
@@ -29,12 +27,12 @@ func layout_cards():
 		var target_pos = Vector2(start_x + i * card_spacing,y_offset )
 		card.move_to(target_pos, animation_time)
 
-func _on_card_request_remove(card):
+func _on_card_request_remove(card): # for the card to be deleted
 	card.queue_free()
 	await get_tree().process_frame
 	layout_cards()
 
-func move_to(target_pos: Vector2, time: float):
+func move_to(target_pos: Vector2, time: float): # animation
 	if tween:
 		tween.kill()
 	tween = create_tween()

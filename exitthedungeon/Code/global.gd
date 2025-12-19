@@ -8,13 +8,12 @@ var player_coins = 0
 var player_weapon_level = 0
 var player_max_weapon_damage = 999
 
-var deck = []
-var cards_on_table = []
 
 
 # ------------------------------------------------------------ DECK BOULDING
 
-
+var full_deck = [] # will be the sum fo player_deck and enemy_deck
+var cards_on_table = []
 
 # ------------------------------------------------------------- CARD ACTIONS
 
@@ -25,15 +24,17 @@ func attack(damage_level):
 	player_coins += damage_level
 	HeroNode.update_coins()
 	
-	if (player_weapon_level > 0):
+	if (player_weapon_level > 0):  
 		player_max_weapon_damage =  damage_level-1
+	
+	if(player_max_weapon_damage == 0):
+		HeroNode.discard_weapon()
 	
 	HeroNode.attack()
 
 func damage_player(damage):
 	player_health -= damage
 	HeroNode.update_health()
-
 
 func take_potion(level):
 	player_health = min(player_health + level,20)
@@ -43,7 +44,6 @@ func grab_weapon(level):
 	player_weapon_level = level
 	player_max_weapon_damage = 999
 	HeroNode.get_new_weapon(level)
-
 
 # ------------------------------------------------------------- HAND ACTION
 

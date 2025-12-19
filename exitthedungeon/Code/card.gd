@@ -13,24 +13,18 @@ func _ready() -> void:
 	$Animator.play('idle')
 
 
-func set_card(cardObj):
+func set_card(data: CardData):
 	
+	# 1) Level and type from the card data
+	type = data.type
+	level = randi_range(data.min_level, data.max_level)
 	
-	match cardObj['card_type']: # [!] level must be calculated in CardManager, not here
-		'monster':
-			level = randi_range(2,10)
-		'weapon':
-			level = randi_range(2,8)
-		'potion':
-			level = randi_range(1,6)
+	print(level)
 	
-	type = cardObj['card_type']
-	
-	$Animator.play('idle')
-	$Sprite.frame = cardObj['card_index']
-	print('My frame is ',cardObj['card_index'])
+	# 2) Set texture and level visuals
+	$Sprite.texture = data.texture
 	LevelLabel.text = str(level)
-	
+	$Animator.play('idle')
 
 # ---------------------------------------------------------------- Click
 
@@ -54,7 +48,7 @@ func on_pressed():
 signal request_remove(card)
 
 func attack():
-	if (Global.player_max_weapon_damage >= level): # If wapon can kill card (weapon_max_level)
+	if (Global.player_max_weapon_damage >= level): # If weapon can kill card (weapon_max_level)
 		# 1) get damaged and get coins
 		Global.attack(level)
 		# 2) show card animation

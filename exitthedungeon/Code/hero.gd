@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var MaxDamageLabel = $Hand/MaxLevel
+@onready var MaxDamageLabel = $Hand/Sprite/MaxLevel
 @onready var DamageLabel = $Hand/Sprite/Damage
 @onready var CoinCounter = $Money/CurrentCoins
 
@@ -14,10 +14,6 @@ func update_health():
 
 func update_coins():
 	CoinCounter.text = str(Global.player_coins)
-
-
-
-
 
 
 func attack():
