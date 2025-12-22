@@ -1,6 +1,14 @@
 extends Node
 
-@onready var HeroNode
+
+## ORIGINAL SCREEN SIZE 270x480
+
+## now points to  SIZE 270x604
+
+
+
+
+var HeroNode: Node = null
 
 var player_health = 20
 var player_coins = 0
@@ -8,13 +16,16 @@ var player_coins = 0
 var player_weapon_level = 0
 var player_max_weapon_damage = 999
 
+var redraw_token = 1
 
+var chamber = 0
 
-# ------------------------------------------------------------ DECK BOULDING
-
+# ------------------------------------------------------------ DECK BUILDING
 
 var player_deck = [] # not used yet
-var table_cards: Array[CardObject] = []
+
+var deck = []
+var table_cards = []
 
 # ------------------------------------------------------------- CARD ACTIONS
 
@@ -35,16 +46,22 @@ func attack(damage_level):
 
 func damage_player(damage):
 	player_health -= damage
-	HeroNode.update_health()
+	HeroNode.take_damage()
 
 func take_potion(level):
 	player_health = min(player_health + level,20)
-	HeroNode.update_health()
+	HeroNode.gain_health()
 
 func grab_weapon(level):
 	player_weapon_level = level
 	player_max_weapon_damage = 999
 	HeroNode.get_new_weapon(level)
+
+
+func next_chamber():
+	chamber += 1
+	if HeroNode:
+		HeroNode.update_chamber()
 
 # ------------------------------------------------------------- HAND ACTION
 

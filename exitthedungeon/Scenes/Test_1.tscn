@@ -1,30 +1,134 @@
-[gd_scene load_steps=24 format=3 uid="uid://b28wgg8vsvahw"]
+[gd_scene load_steps=30 format=3 uid="uid://b28wgg8vsvahw"]
 
 [ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card.tscn" id="1_ac6jj"]
 [ext_resource type="Script" path="res://Code/card management/card_manager.gd" id="1_c3chp"]
 [ext_resource type="Script" path="res://Code/hero.gd" id="2_bja64"]
 [ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/healthIcon1.png" id="2_txy4r"]
 [ext_resource type="Script" path="res://Code/card management/cards_container.gd" id="3_1dfm8"]
-[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="3_hy8ve"]
-[ext_resource type="Texture2D" uid="uid://dhmlcvakwx6jh" path="res://Sprites/changeCardsButton1.png" id="4_wgtaw"]
-[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Scenes/Tres/goblins/goblin.tres" id="5_6xdy8"]
-[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Scenes/Tres/weapons/sword.tres" id="5_pbkl7"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="3_eu5ir"]
+[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Scenes/Tres/goblins/goblin.tres" id="4_itb8f"]
+[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Scenes/Tres/goblins/goblin_warrior.tres" id="5_j57oy"]
+[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Scenes/Tres/items/potion_mayor.tres" id="6_5vg4t"]
 [ext_resource type="LabelSettings" uid="uid://kfihbm5bi7c3" path="res://Sprites/Label Settings/label1_normal.tres" id="6_bo4sg"]
-[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="6_iwkjg"]
 [ext_resource type="LabelSettings" uid="uid://cg46jtso5i2j3" path="res://Sprites/Label Settings/label2_small.tres" id="7_4sdm5"]
-[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Scenes/Tres/goblins/goblin_warrior.tres" id="7_8hcp5"]
 [ext_resource type="Texture2D" uid="uid://bvwblna6aqlye" path="res://Sprites/handCard.png" id="7_d8wla"]
+[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Scenes/Tres/items/potion_minor.tres" id="7_jpl1b"]
+[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Scenes/Tres/weapons/sword.tres" id="8_i5ld5"]
 [ext_resource type="Texture2D" uid="uid://hlte2rb60wek" path="res://Sprites/coinIcon1.png" id="8_j8ma8"]
-[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Scenes/Tres/items/potion_minor.tres" id="8_vxm47"]
-[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Scenes/Tres/items/potion_mayor.tres" id="9_bw5an"]
 [ext_resource type="Texture2D" uid="uid://bi7036lw0nhbg" path="res://Sprites/discardButton1.png" id="9_fnpkm"]
+[ext_resource type="Texture2D" uid="uid://ctw05jmnlw0o6" path="res://Sprites/goblinDeck.png" id="10_nnnxa"]
+[ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="12_dlmhk"]
+[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="13_afjmj"]
 
-[sub_resource type="Resource" id="Resource_ysw25"]
-script = ExtResource("3_hy8ve")
-type = "monster"
-texture = ExtResource("6_iwkjg")
-min_level = 1
-max_level = 4
+[sub_resource type="LabelSettings" id="LabelSettings_bkspt"]
+font = ExtResource("12_dlmhk")
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpes4"]
+font = ExtResource("12_dlmhk")
+font_size = 29
+
+[sub_resource type="Animation" id="Animation_nyeme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heart:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_33esh"]
+resource_name = "gain_health"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6epg1"]
+resource_name = "take_damage"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Heart:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Heart:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.74902, 1, 0.443137, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3a7ea"]
+_data = {
+"RESET": SubResource("Animation_nyeme"),
+"gain_health": SubResource("Animation_33esh"),
+"take_damage": SubResource("Animation_6epg1")
+}
 
 [sub_resource type="Animation" id="Animation_qmqw4"]
 resource_name = "attack"
@@ -134,10 +238,10 @@ _data = {
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_c3chp")
 Card = ExtResource("1_ac6jj")
-cards_pool = Array[ExtResource("3_hy8ve")]([ExtResource("5_pbkl7"), ExtResource("5_6xdy8"), SubResource("Resource_ysw25"), ExtResource("7_8hcp5"), ExtResource("8_vxm47"), ExtResource("9_bw5an")])
+cards_pool = Array[ExtResource("3_eu5ir")]([ExtResource("4_itb8f"), ExtResource("5_j57oy"), ExtResource("6_5vg4t"), ExtResource("7_jpl1b"), ExtResource("8_i5ld5")])
 
 [node name="CardsContainer" type="Node2D" parent="CardManager"]
-position = Vector2(224, 32)
+position = Vector2(246, 32)
 script = ExtResource("3_1dfm8")
 
 [node name="Timer" type="Timer" parent="CardManager"]
@@ -145,21 +249,62 @@ wait_time = 10.0
 autostart = true
 
 [node name="ChangeCards" type="Button" parent="CardManager"]
-offset_left = 40.0
-offset_top = 33.0
-offset_right = 62.0
-offset_bottom = 125.0
+offset_left = 27.0
+offset_top = 26.0
+offset_right = 97.0
+offset_bottom = 129.0
 focus_mode = 0
 flat = true
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="CardManager/ChangeCards"]
-position = Vector2(10, 47)
-texture = ExtResource("4_wgtaw")
+position = Vector2(36, 54)
+texture = ExtResource("10_nnnxa")
 
 [node name="You" type="Node2D" parent="."]
 position = Vector2(24, 150)
 script = ExtResource("2_bja64")
+
+[node name="GameOver" type="Node2D" parent="You"]
+visible = false
+
+[node name="Label" type="Label" parent="You/GameOver"]
+z_index = 2
+offset_left = 22.0
+offset_top = -96.0
+offset_right = 279.0
+offset_bottom = 107.0
+text = "GAME
+OVER"
+label_settings = SubResource("LabelSettings_bkspt")
+
+[node name="Sprite2D" type="Sprite2D" parent="You/GameOver"]
+self_modulate = Color(0, 0, 0, 0.572549)
+z_index = 1
+position = Vector2(231, -9)
+rotation = 1.5708
+scale = Vector2(6, 6)
+texture = ExtResource("13_afjmj")
+
+[node name="Score" type="Label" parent="You/GameOver"]
+z_index = 1
+offset_left = 274.0
+offset_top = -42.0
+offset_right = 350.0
+offset_bottom = -12.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_hpes4")
+
+[node name="Chamber" type="Node2D" parent="You"]
+position = Vector2(-1, 104)
+
+[node name="CurrentChamber" type="Label" parent="You/Chamber"]
+offset_left = 23.0
+offset_top = -10.0
+offset_right = 63.0
+offset_bottom = 13.0
+text = "Chamber 1"
+label_settings = ExtResource("6_bo4sg")
 
 [node name="Health" type="Node2D" parent="You"]
 position = Vector2(46, 24)
@@ -183,6 +328,11 @@ offset_right = 58.0
 offset_bottom = 23.0
 text = "/20"
 label_settings = ExtResource("7_4sdm5")
+
+[node name="Animator" type="AnimationPlayer" parent="You/Health"]
+libraries = {
+"": SubResource("AnimationLibrary_3a7ea")
+}
 
 [node name="Money" type="Node2D" parent="You"]
 position = Vector2(46, 66)
@@ -237,4 +387,5 @@ offset_bottom = 95.0
 texture_normal = ExtResource("9_fnpkm")
 
 [connection signal="timeout" from="CardManager/Timer" to="CardManager" method="_on_timer_timeout"]
+[connection signal="button_up" from="CardManager/ChangeCards" to="CardManager" method="_on_change_cards_button_up"]
 [connection signal="button_up" from="You/Hand/TextureButton" to="You" method="_on_texture_button_button_up"]

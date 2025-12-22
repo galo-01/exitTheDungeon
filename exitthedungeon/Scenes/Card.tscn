@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cv2trkxduoqww"]
 
 [ext_resource type="Script" path="res://Code/card management/card.gd" id="1_pji3r"]
-[ext_resource type="Texture2D" uid="uid://b4eua80iyyq7u" path="res://Sprites/Cards/card_goblin2.png" id="2_k10kk"]
+[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="2_ol8bh"]
 [ext_resource type="LabelSettings" uid="uid://eel80ghwbypo" path="res://Sprites/Label Settings/label3_normal.tres" id="3_40rcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8bd4"]
@@ -161,18 +161,19 @@ script = ExtResource("1_pji3r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(34, 48)
-texture = ExtResource("2_k10kk")
+texture = ExtResource("2_ol8bh")
 
 [node name="LevelLabel" type="Label" parent="Sprite"]
-offset_left = -6.0
-offset_top = 33.0
-offset_right = 29.0
-offset_bottom = 49.0
+offset_left = -7.0
+offset_top = 35.0
+offset_right = 28.0
+offset_bottom = 51.0
 text = "7"
 label_settings = ExtResource("3_40rcs")
 horizontal_alignment = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(33.5, 48.5)
 shape = SubResource("RectangleShape2D_c8bd4")
 

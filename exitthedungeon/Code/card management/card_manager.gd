@@ -3,45 +3,111 @@ extends Node2D #(CardManager)
 @export var Card: PackedScene
 @onready var CardContainer = $CardsContainer
 
-
 @export var cards_pool: Array[CardData] # NEW array of posible cards
 
+var monster_pool: Array[CardData] = []
+var weapon_pool: Array[CardData] = []
+var potion_pool: Array[CardData] = []
 
-var deck: Array[CardObject] = []
-
+var deck_set_size = 8
 
 func _ready() -> void:
-	add_new_cards(4)
-
-func next_set_of_cards(num): # NOT BEING USED
-	for child in CardContainer.get_children():
-		child.queue_free()
-		
-	add_new_cards(num)
+	fill_deck(deck_set_size)
+	add_cards_to_table(4)
 
 
-func add_new_cards(num):
-	print('------------')
-	for i in num:
-		
-		# Create card NODE and add to CardContainer
-		var card_instance = Card.instantiate()
-		
-		# Add card to CardContainer
-		CardContainer.add_card(card_instance)
-		
-		# Choose a card from the card_pool
-		var card_data = cards_pool[randi_range(0,cards_pool.size()-1)]
-		
-		# Create a card OBJECT and give it the card_data
-		var card_obj = CardObject.new(card_data)
-		
-		# give card_obj to the card created
-		card_instance.set_card(card_obj)
-		
+func fill_deck(setAmout:int):
+	Global.next_chamber()
+	Global.deck.clear()
 	
-	# Update layout after all cards were added
+	monster_pool.clear()
+	weapon_pool.clear()
+	potion_pool.clear()
+	
+	for card in cards_pool: #split and make pools for each card type
+		match card.type:
+			"monster": monster_pool.append(card)
+			"weapon": weapon_pool.append(card)
+			"potion": potion_pool.append(card)
+	
+	for i in setAmout:
+		# MONSTER
+		
+		for j in randi_range(2,3):
+			if monster_pool.is_empty():
+				break
+			Global.deck.append(CardObject.new(monster_pool.pick_random()))
+		
+		# wepons
+		if not weapon_pool.is_empty():
+			Global.deck.append(CardObject.new(weapon_pool.pick_random()))
+		
+		# potions
+		if not potion_pool.is_empty():
+			Global.deck.append(CardObject.new(potion_pool.pick_random()))
+	
+	Global.deck.shuffle()
+
+
+
+func next_set_of_cards():
+	Global.redraw_token = 1
+	#show redraw button
+	$ChangeCards/Sprite.modulate = Color("ffffff")
+	
+	add_cards_to_table(min(3, Global.deck.size()))
+	
+	if(Global.table_cards.size() == 0):
+		fill_deck(deck_set_size)
+		add_cards_to_table(4)
+	
+
+func redraw_cards():
+	if Global.redraw_token > 0 and Global.table_cards.size() == 4:
+		Global.redraw_token -= 1
+		
+		# Return cards con table_cards to the deck
+		for card in Global.table_cards:
+			Global.deck.append(card)
+		Global.table_cards.clear()
+		
+		# 2) limpiar la vista
+		await CardContainer.clear_cards()
+		
+		add_cards_to_table(4)
+		
+		#hide redraw button
+		$ChangeCards/Sprite.modulate = Color("ffffff93")
+
+
+func add_cards_to_table(num: int):
+	for i in num:
+		if Global.deck.is_empty():
+			break
+
+		# 1) sacar la primera carta del deck
+		var card_obj = Global.deck.pop_front()
+
+		# 2) modelo
+		Global.table_cards.append(card_obj)
+
+		# 3) vista
+		var card_instance = Card.instantiate()
+		CardContainer.add_card(card_instance)
+		card_instance.set_card(card_obj)
+
+	print("There are ", Global.deck.size(), " cards left")
 	CardContainer.layout_cards()
 
-func _on_timer_timeout() -> void:
-	add_new_cards(3)
+
+func remove_card_from_table(card_object):
+	Global.table_cards.erase(card_object)
+	if Global.table_cards.size() <= 1:
+		next_set_of_cards()
+
+
+
+# ----------------------------------------------------- Button
+
+func _on_change_cards_button_up() -> void:
+	redraw_cards()
