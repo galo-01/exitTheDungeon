@@ -12,6 +12,7 @@ var potion_pool: Array[CardData] = []
 var deck_set_size = 8
 
 func _ready() -> void:
+	Global.CardManagerNode = self
 	fill_deck(deck_set_size)
 	add_cards_to_table(4)
 
@@ -49,9 +50,9 @@ func fill_deck(setAmout:int):
 	Global.deck.shuffle()
 
 
-
 func next_set_of_cards():
 	Global.redraw_token = 1
+	Global.can_redraw = true
 	#show redraw button
 	$ChangeCards/Sprite.modulate = Color("ffffff")
 	
@@ -63,21 +64,26 @@ func next_set_of_cards():
 	
 
 func redraw_cards():
-	if Global.redraw_token > 0 and Global.table_cards.size() == 4:
+	if Global.table_cards.size() == 4 and Global.can_redraw:
+		
 		Global.redraw_token -= 1
+		
+		if Global.redraw_token < 1:
+			Global.can_redraw = false
+		
 		
 		# Return cards con table_cards to the deck
 		for card in Global.table_cards:
 			Global.deck.append(card)
 		Global.table_cards.clear()
 		
-		# 2) limpiar la vista
+		# 2) clean cards
 		await CardContainer.clear_cards()
 		
 		add_cards_to_table(4)
 		
 		#hide redraw button
-		$ChangeCards/Sprite.modulate = Color("ffffff93")
+		lock_redraw_button()
 
 
 func add_cards_to_table(num: int):
@@ -85,18 +91,18 @@ func add_cards_to_table(num: int):
 		if Global.deck.is_empty():
 			break
 
-		# 1) sacar la primera carta del deck
+		# 1) get first card from deck
 		var card_obj = Global.deck.pop_front()
 
-		# 2) modelo
+		# 2) model
 		Global.table_cards.append(card_obj)
 
-		# 3) vista
+		# 3) show
 		var card_instance = Card.instantiate()
 		CardContainer.add_card(card_instance)
 		card_instance.set_card(card_obj)
-
-	print("There are ", Global.deck.size(), " cards left")
+	
+	
 	CardContainer.layout_cards()
 
 
@@ -104,6 +110,10 @@ func remove_card_from_table(card_object):
 	Global.table_cards.erase(card_object)
 	if Global.table_cards.size() <= 1:
 		next_set_of_cards()
+
+
+func lock_redraw_button():
+	$ChangeCards/Sprite.modulate = Color("ffffff93")
 
 
 

@@ -1,31 +1,32 @@
-[gd_scene load_steps=30 format=3 uid="uid://b28wgg8vsvahw"]
+[gd_scene load_steps=31 format=3 uid="uid://b28wgg8vsvahw"]
 
-[ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card.tscn" id="1_ac6jj"]
-[ext_resource type="Script" path="res://Code/card management/card_manager.gd" id="1_c3chp"]
-[ext_resource type="Script" path="res://Code/hero.gd" id="2_bja64"]
-[ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/healthIcon1.png" id="2_txy4r"]
-[ext_resource type="Script" path="res://Code/card management/cards_container.gd" id="3_1dfm8"]
-[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="3_eu5ir"]
-[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Scenes/Tres/goblins/goblin.tres" id="4_itb8f"]
-[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Scenes/Tres/goblins/goblin_warrior.tres" id="5_j57oy"]
-[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Scenes/Tres/items/potion_mayor.tres" id="6_5vg4t"]
-[ext_resource type="LabelSettings" uid="uid://kfihbm5bi7c3" path="res://Sprites/Label Settings/label1_normal.tres" id="6_bo4sg"]
-[ext_resource type="LabelSettings" uid="uid://cg46jtso5i2j3" path="res://Sprites/Label Settings/label2_small.tres" id="7_4sdm5"]
-[ext_resource type="Texture2D" uid="uid://bvwblna6aqlye" path="res://Sprites/handCard.png" id="7_d8wla"]
-[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Scenes/Tres/items/potion_minor.tres" id="7_jpl1b"]
-[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Scenes/Tres/weapons/sword.tres" id="8_i5ld5"]
-[ext_resource type="Texture2D" uid="uid://hlte2rb60wek" path="res://Sprites/coinIcon1.png" id="8_j8ma8"]
-[ext_resource type="Texture2D" uid="uid://bi7036lw0nhbg" path="res://Sprites/discardButton1.png" id="9_fnpkm"]
-[ext_resource type="Texture2D" uid="uid://ctw05jmnlw0o6" path="res://Sprites/goblinDeck.png" id="10_nnnxa"]
-[ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="12_dlmhk"]
-[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="13_afjmj"]
+[ext_resource type="Texture2D" uid="uid://borhlobpr3hb1" path="res://Sprites/Ui/backgrounds/background1.png" id="1_238j6"]
+[ext_resource type="Script" path="res://Code/card management/card_manager.gd" id="2_bofxm"]
+[ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card.tscn" id="3_018gt"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="4_jd6uk"]
+[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Scenes/Tres/goblins/goblin.tres" id="5_bhg1t"]
+[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Scenes/Tres/goblins/goblin_warrior.tres" id="6_2nu6a"]
+[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Scenes/Tres/items/potion_mayor.tres" id="7_2o4vw"]
+[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Scenes/Tres/items/potion_minor.tres" id="8_gjgs3"]
+[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Scenes/Tres/weapons/sword.tres" id="9_7saew"]
+[ext_resource type="Script" path="res://Code/card management/cards_container.gd" id="10_846in"]
+[ext_resource type="Texture2D" uid="uid://ctw05jmnlw0o6" path="res://Sprites/goblinDeck.png" id="11_fuvib"]
+[ext_resource type="Script" path="res://Code/hero.gd" id="12_suwto"]
+[ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="13_0nl1w"]
+[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="14_sajgo"]
+[ext_resource type="LabelSettings" uid="uid://kfihbm5bi7c3" path="res://Sprites/Label Settings/label1_normal.tres" id="15_3b7ed"]
+[ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/Ui/healthIcon1.png" id="16_a74mm"]
+[ext_resource type="LabelSettings" uid="uid://cg46jtso5i2j3" path="res://Sprites/Label Settings/label2_small.tres" id="17_xh3lr"]
+[ext_resource type="Texture2D" uid="uid://hlte2rb60wek" path="res://Sprites/Ui/coinIcon1.png" id="18_evwq5"]
+[ext_resource type="Texture2D" uid="uid://bvwblna6aqlye" path="res://Sprites/handCard.png" id="19_1knhi"]
+[ext_resource type="Texture2D" uid="uid://bi7036lw0nhbg" path="res://Sprites/Ui/buttons/discardButton1.png" id="20_jomq7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkspt"]
-font = ExtResource("12_dlmhk")
+font = ExtResource("13_0nl1w")
 font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_hpes4"]
-font = ExtResource("12_dlmhk")
+font = ExtResource("13_0nl1w")
 font_size = 29
 
 [sub_resource type="Animation" id="Animation_nyeme"]
@@ -233,16 +234,22 @@ _data = {
 "idle": SubResource("Animation_bgy5b")
 }
 
-[node name="Test1" type="Node2D"]
+[node name="Room1" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 604.0
+offset_bottom = 270.0
+texture = ExtResource("1_238j6")
 
 [node name="CardManager" type="Node2D" parent="."]
-script = ExtResource("1_c3chp")
-Card = ExtResource("1_ac6jj")
-cards_pool = Array[ExtResource("3_eu5ir")]([ExtResource("4_itb8f"), ExtResource("5_j57oy"), ExtResource("6_5vg4t"), ExtResource("7_jpl1b"), ExtResource("8_i5ld5")])
+position = Vector2(59, 0)
+script = ExtResource("2_bofxm")
+Card = ExtResource("3_018gt")
+cards_pool = Array[ExtResource("4_jd6uk")]([ExtResource("5_bhg1t"), ExtResource("6_2nu6a"), ExtResource("7_2o4vw"), ExtResource("8_gjgs3"), ExtResource("9_7saew")])
 
 [node name="CardsContainer" type="Node2D" parent="CardManager"]
 position = Vector2(246, 32)
-script = ExtResource("3_1dfm8")
+script = ExtResource("10_846in")
 
 [node name="Timer" type="Timer" parent="CardManager"]
 wait_time = 10.0
@@ -259,11 +266,11 @@ metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="CardManager/ChangeCards"]
 position = Vector2(36, 54)
-texture = ExtResource("10_nnnxa")
+texture = ExtResource("11_fuvib")
 
 [node name="You" type="Node2D" parent="."]
-position = Vector2(24, 150)
-script = ExtResource("2_bja64")
+position = Vector2(83, 150)
+script = ExtResource("12_suwto")
 
 [node name="GameOver" type="Node2D" parent="You"]
 visible = false
@@ -284,7 +291,7 @@ z_index = 1
 position = Vector2(231, -9)
 rotation = 1.5708
 scale = Vector2(6, 6)
-texture = ExtResource("13_afjmj")
+texture = ExtResource("14_sajgo")
 
 [node name="Score" type="Label" parent="You/GameOver"]
 z_index = 1
@@ -304,14 +311,14 @@ offset_top = -10.0
 offset_right = 63.0
 offset_bottom = 13.0
 text = "Chamber 1"
-label_settings = ExtResource("6_bo4sg")
+label_settings = ExtResource("15_3b7ed")
 
 [node name="Health" type="Node2D" parent="You"]
 position = Vector2(46, 24)
 metadata/_edit_group_ = true
 
 [node name="Heart" type="Sprite2D" parent="You/Health"]
-texture = ExtResource("2_txy4r")
+texture = ExtResource("16_a74mm")
 
 [node name="CurrentHealth" type="Label" parent="You/Health"]
 offset_left = 23.0
@@ -319,7 +326,7 @@ offset_top = -10.0
 offset_right = 63.0
 offset_bottom = 13.0
 text = "20"
-label_settings = ExtResource("6_bo4sg")
+label_settings = ExtResource("15_3b7ed")
 
 [node name="MaxHealth" type="Label" parent="You/Health/CurrentHealth"]
 layout_mode = 0
@@ -327,7 +334,7 @@ offset_left = 18.0
 offset_right = 58.0
 offset_bottom = 23.0
 text = "/20"
-label_settings = ExtResource("7_4sdm5")
+label_settings = ExtResource("17_xh3lr")
 
 [node name="Animator" type="AnimationPlayer" parent="You/Health"]
 libraries = {
@@ -338,7 +345,7 @@ libraries = {
 position = Vector2(46, 66)
 
 [node name="Coin" type="Sprite2D" parent="You/Money"]
-texture = ExtResource("8_j8ma8")
+texture = ExtResource("18_evwq5")
 
 [node name="CurrentCoins" type="Label" parent="You/Money"]
 offset_left = 23.0
@@ -346,14 +353,14 @@ offset_top = -10.0
 offset_right = 63.0
 offset_bottom = 13.0
 text = "0"
-label_settings = ExtResource("6_bo4sg")
+label_settings = ExtResource("15_3b7ed")
 
 [node name="Hand" type="Node2D" parent="You"]
 position = Vector2(137, -1)
 
 [node name="Sprite" type="Sprite2D" parent="You/Hand"]
 position = Vector2(81, 50)
-texture = ExtResource("7_d8wla")
+texture = ExtResource("19_1knhi")
 hframes = 2
 
 [node name="Damage" type="Label" parent="You/Hand/Sprite"]
@@ -363,7 +370,7 @@ offset_right = 30.0
 offset_bottom = 49.0
 text = "0
 "
-label_settings = ExtResource("6_bo4sg")
+label_settings = ExtResource("15_3b7ed")
 horizontal_alignment = 2
 
 [node name="MaxLevel" type="Label" parent="You/Hand/Sprite"]
@@ -372,7 +379,7 @@ offset_top = 34.0
 offset_right = 9.0
 offset_bottom = 47.0
 text = "Max ∞"
-label_settings = ExtResource("7_4sdm5")
+label_settings = ExtResource("17_xh3lr")
 
 [node name="Animator" type="AnimationPlayer" parent="You/Hand"]
 libraries = {
@@ -384,7 +391,7 @@ offset_left = 126.0
 offset_top = 51.0
 offset_right = 154.0
 offset_bottom = 95.0
-texture_normal = ExtResource("9_fnpkm")
+texture_normal = ExtResource("20_jomq7")
 
 [connection signal="timeout" from="CardManager/Timer" to="CardManager" method="_on_timer_timeout"]
 [connection signal="button_up" from="CardManager/ChangeCards" to="CardManager" method="_on_change_cards_button_up"]

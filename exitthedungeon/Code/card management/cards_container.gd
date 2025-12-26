@@ -38,7 +38,6 @@ func _on_card_request_remove(card_Object): # for the card to be deleted
 	await get_tree().process_frame
 	layout_cards()
 	
-	print(Global.table_cards)
 
 func clear_cards():
 	for card_node in get_children():

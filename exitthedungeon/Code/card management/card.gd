@@ -23,9 +23,6 @@ func set_card(cardObj: CardObject):
 	LevelLabel.text = str(card_object.level)
 	$Animator.play('idle')
 	
-	print(card_object.level)
-	print(card_object.data.type)
-	
 
 
 # ---------------------------------------------------------------- Click
@@ -38,6 +35,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		on_pressed()
 	elif event is InputEventScreenTouch and event.pressed:
 		on_pressed()
+
 
 func on_pressed():
 	match card_object.data.type:
@@ -54,7 +52,7 @@ func attack():
 	if (Global.player_max_weapon_damage >= card_object.level): # If weapon can kill card (weapon_max_level)
 		is_locked = true # lock card
 		# 1) get damaged and get coins
-		Global.attack(card_object.level)
+		Global.select_card('attack',card_object.level)
 		# 2) show card animation
 		$Animator.play("die")
 		await $Animator.animation_finished
@@ -63,8 +61,9 @@ func attack():
 
 func grab_weapon():
 	is_locked = true # lock card
+	
 	#1) Get Weapon
-	Global.grab_weapon(card_object.level)
+	Global.select_card('grab_weapon',card_object.level)
 	
 	#2) Show animation
 	$Animator.play("grab")
@@ -76,7 +75,7 @@ func grab_weapon():
 func take_potion():
 	is_locked = true # lock card
 	#1) Heal
-	Global.take_potion(card_object.level)
+	Global.select_card('take_potion',card_object.level)
 	
 	#2) Show card animation
 	$Animator.play("grab")
@@ -84,8 +83,6 @@ func take_potion():
 	
 	#3) be deleted by parent
 	request_remove.emit(card_object)
-
-
 
 
 

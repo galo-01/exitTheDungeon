@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuwonfpqd4i5f"
-path="res://.godot/imported/cards1.png-8cfcafb216fa85430219a4978f964cff.ctex"
+uid="uid://bi7036lw0nhbg"
+path="res://.godot/imported/discardButton1.png-da9c665c312395b7594fd0d6cae6d6b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/cards1.png"
-dest_files=["res://.godot/imported/cards1.png-8cfcafb216fa85430219a4978f964cff.ctex"]
+source_file="res://Sprites/Ui/buttons/discardButton1.png"
+dest_files=["res://.godot/imported/discardButton1.png-da9c665c312395b7594fd0d6cae6d6b8.ctex"]
 
 [params]
 
