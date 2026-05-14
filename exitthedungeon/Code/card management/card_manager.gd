@@ -3,7 +3,7 @@ extends Node2D #(CardManager)
 @export var Card: PackedScene
 @onready var CardContainer = $CardsContainer
 
-@export var cards_pool: Array[CardData] # NEW array of posible cards
+@export var cards_pool: Array[CardData] 
 
 var monster_pool: Array[CardData] = []
 var weapon_pool: Array[CardData] = []

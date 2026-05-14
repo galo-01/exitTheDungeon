@@ -70,7 +70,6 @@ func grab_weapon(level):
 	player_max_weapon_damage = 999
 	HeroNode.get_new_weapon(level)
 
-
 func next_chamber():
 	chamber += 1
 	if HeroNode:
