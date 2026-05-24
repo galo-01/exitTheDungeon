@@ -1,13 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://b28wgg8vsvahw"]
+[gd_scene load_steps=22 format=3 uid="uid://b28wgg8vsvahw"]
 
 [ext_resource type="Texture2D" uid="uid://borhlobpr3hb1" path="res://Sprites/Ui/backgrounds/background1.png" id="1_238j6"]
 [ext_resource type="PackedScene" uid="uid://o16ng2bmfbd8" path="res://Scenes/CardManager/CardManager.tscn" id="2_lwm41"]
-[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Code/CardResources/goblins/goblin.tres" id="4_esgoj"]
-[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="4_jd6uk"]
-[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Code/CardResources/goblins/goblin_warrior.tres" id="5_3okni"]
-[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Code/CardResources/weapons/sword.tres" id="6_kcoq2"]
-[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Code/CardResources/items/potion_mayor.tres" id="7_cdfxg"]
-[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Code/CardResources/items/potion_minor.tres" id="8_5a0st"]
 [ext_resource type="Script" path="res://Code/hero.gd" id="12_suwto"]
 [ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="13_0nl1w"]
 [ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="14_sajgo"]
@@ -239,9 +233,6 @@ offset_bottom = 270.0
 texture = ExtResource("1_238j6")
 
 [node name="CardManager" parent="." instance=ExtResource("2_lwm41")]
-monster_pool = Array[ExtResource("4_jd6uk")]([ExtResource("4_esgoj"), ExtResource("5_3okni")])
-weapon_pool = Array[ExtResource("4_jd6uk")]([ExtResource("6_kcoq2")])
-potion_pool = Array[ExtResource("4_jd6uk")]([ExtResource("7_cdfxg"), ExtResource("8_5a0st")])
 
 [node name="You" type="Node2D" parent="."]
 position = Vector2(83, 150)

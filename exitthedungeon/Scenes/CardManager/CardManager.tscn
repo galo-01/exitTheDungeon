@@ -1,0 +1,42 @@
+[gd_scene load_steps=11 format=3 uid="uid://o16ng2bmfbd8"]
+
+[ext_resource type="Script" path="res://Scenes/CardManager/card_manager.gd" id="1_osdio"]
+[ext_resource type="PackedScene" uid="uid://cv2trkxduoqww" path="res://Scenes/Card/Card.tscn" id="2_3mocv"]
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="3_jcapu"]
+[ext_resource type="Resource" uid="uid://dxy00cbymskb2" path="res://Code/CardResources/goblins/goblin.tres" id="4_68yyq"]
+[ext_resource type="Resource" uid="uid://br24ajl6f7fku" path="res://Code/CardResources/goblins/goblin_warrior.tres" id="5_0q5rq"]
+[ext_resource type="Resource" uid="uid://deohwbgeuac4g" path="res://Code/CardResources/items/potion_mayor.tres" id="6_4rkg8"]
+[ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Code/CardResources/items/potion_minor.tres" id="7_2ctbh"]
+[ext_resource type="Resource" uid="uid://cn7xin2cd04il" path="res://Code/CardResources/weapons/sword.tres" id="8_w7lin"]
+[ext_resource type="Script" path="res://Scenes/CardManager/cards_container.gd" id="9_a0t7m"]
+[ext_resource type="Texture2D" uid="uid://ctw05jmnlw0o6" path="res://Sprites/goblinDeck.png" id="10_nvl3k"]
+
+[node name="CardManager" type="Node2D"]
+position = Vector2(59, 0)
+script = ExtResource("1_osdio")
+Card = ExtResource("2_3mocv")
+cards_pool = Array[ExtResource("3_jcapu")]([ExtResource("4_68yyq"), ExtResource("5_0q5rq"), ExtResource("6_4rkg8"), ExtResource("7_2ctbh"), ExtResource("8_w7lin")])
+
+[node name="CardsContainer" type="Node2D" parent="."]
+position = Vector2(246, 32)
+script = ExtResource("9_a0t7m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ChangeCards" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 26.0
+offset_right = 97.0
+offset_bottom = 129.0
+focus_mode = 0
+flat = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="ChangeCards"]
+position = Vector2(36, 54)
+texture = ExtResource("10_nvl3k")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_up" from="ChangeCards" to="." method="_on_change_cards_button_up"]

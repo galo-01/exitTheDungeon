@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cv2trkxduoqww"]
 
-[ext_resource type="Script" path="res://Code/card management/card.gd" id="1_pji3r"]
+[ext_resource type="Script" path="res://Scenes/Card/card.gd" id="1_pji3r"]
 [ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="2_ol8bh"]
 [ext_resource type="LabelSettings" uid="uid://eel80ghwbypo" path="res://Sprites/Label Settings/label3_normal.tres" id="3_40rcs"]
 

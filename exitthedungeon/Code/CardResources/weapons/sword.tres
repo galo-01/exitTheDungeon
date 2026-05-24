@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cn7xin2cd04il"]
+
+[ext_resource type="Script" path="res://Code/card management/cardData.gd" id="1_hckur"]
+[ext_resource type="Texture2D" uid="uid://dxwsxfrx5vgfy" path="res://Sprites/Cards/card_sword1.png" id="2_eegtb"]
+
+[resource]
+script = ExtResource("1_hckur")
+type = "weapon"
+name = "Broadswoard"
+min_power = 3
+max_power = 7
+texture = ExtResource("2_eegtb")
