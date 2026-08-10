@@ -1,6 +1,8 @@
 extends Area2D #(Card) There will be many of them as childs of CardContainer
 
-@onready var LevelLabel = $Sprite/LevelLabel
+@onready var powerLabel = $Container/PowerTag/PowerLabel
+@onready var sprite = $Container/Sprite
+@onready var powerTag = $Container/PowerTag
 @onready var CardContainer = get_parent()
 
 signal request_remove(card)
@@ -19,8 +21,16 @@ func set_card(cardObj: CardInstance):
 	card_object = cardObj
 	
 	#  Set texture and level visuals
-	$Sprite.texture = card_object.data.texture
-	LevelLabel.text = str(card_object.getPower())
+	sprite.texture = card_object.data.texture
+	powerLabel.text = str(card_object.getPower())
+	
+	print(card_object.getType())
+	
+	match (card_object.getType()):
+		"weapon":
+			powerTag.frame = 0
+		"monster","potion":
+			powerTag.frame = 1
 	$Animator.play('idle')
 	
 

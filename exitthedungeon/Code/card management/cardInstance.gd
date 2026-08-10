@@ -21,5 +21,9 @@ func _init(card_data: CardData):
 func getPower():
 	return power
 
+
+func getType():
+	return data.type
+
 func info():
 	return str("[Card]: ",data.name," , Power: ",power)

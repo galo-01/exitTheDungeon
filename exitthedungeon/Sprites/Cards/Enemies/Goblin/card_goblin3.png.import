@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb74po6udc16r"
-path="res://.godot/imported/card_sword2.png-1ae9560da3ce0ac7793e0018fda89d48.ctex"
+uid="uid://cotk347atwl8n"
+path="res://.godot/imported/card_goblin3.png-2d931ad40bfa880484908fc22c810989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cards/card_sword2.png"
-dest_files=["res://.godot/imported/card_sword2.png-1ae9560da3ce0ac7793e0018fda89d48.ctex"]
+source_file="res://Sprites/Cards/Enemies/Goblin/card_goblin3.png"
+dest_files=["res://.godot/imported/card_goblin3.png-2d931ad40bfa880484908fc22c810989.ctex"]
 
 [params]
 

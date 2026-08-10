@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n2nbuxi4vv0l"
-path="res://.godot/imported/card_potion_minor.png-5b4031ac4286f312858e85a34ada496c.ctex"
+uid="uid://plnohfjfhlod"
+path="res://.godot/imported/power_tag.png-b35fe965b4d365b1cfe6f28833069be4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cards/card_potion_minor.png"
-dest_files=["res://.godot/imported/card_potion_minor.png-5b4031ac4286f312858e85a34ada496c.ctex"]
+source_file="res://Sprites/Cards/power_tag.png"
+dest_files=["res://.godot/imported/power_tag.png-b35fe965b4d365b1cfe6f28833069be4.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b28wgg8vsvahw"]
+[gd_scene load_steps=30 format=3 uid="uid://b28wgg8vsvahw"]
 
 [ext_resource type="Texture2D" uid="uid://borhlobpr3hb1" path="res://Sprites/Ui/backgrounds/background1.png" id="1_238j6"]
 [ext_resource type="PackedScene" uid="uid://o16ng2bmfbd8" path="res://Scenes/CardManager/CardManager.tscn" id="2_lwm41"]
@@ -10,11 +10,12 @@
 [ext_resource type="Resource" uid="uid://d3jhioa2lghyn" path="res://Code/CardResources/items/potion_minor.tres" id="8_5a0st"]
 [ext_resource type="Script" path="res://Code/hero.gd" id="12_suwto"]
 [ext_resource type="FontFile" uid="uid://ddrqayj60ofpt" path="res://Sprites/Fonts/Pixellari.ttf" id="13_0nl1w"]
-[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/card_goblin1.png" id="14_sajgo"]
+[ext_resource type="Texture2D" uid="uid://db41vk56eqacp" path="res://Sprites/Cards/Enemies/card_goblin1.png" id="14_sajgo"]
 [ext_resource type="LabelSettings" uid="uid://kfihbm5bi7c3" path="res://Sprites/Label Settings/label1_normal.tres" id="15_3b7ed"]
 [ext_resource type="Texture2D" uid="uid://qyonxvr620xd" path="res://Sprites/Ui/healthIcon1.png" id="16_a74mm"]
 [ext_resource type="LabelSettings" uid="uid://cg46jtso5i2j3" path="res://Sprites/Label Settings/label2_small.tres" id="17_xh3lr"]
 [ext_resource type="Texture2D" uid="uid://hlte2rb60wek" path="res://Sprites/Ui/coinIcon1.png" id="18_evwq5"]
+[ext_resource type="Texture2D" uid="uid://jbjkqyav3we0" path="res://Sprites/Cards/card_base_1.png" id="18_jur16"]
 [ext_resource type="Texture2D" uid="uid://bvwblna6aqlye" path="res://Sprites/handCard.png" id="19_1knhi"]
 [ext_resource type="Texture2D" uid="uid://bi7036lw0nhbg" path="res://Sprites/Ui/buttons/discardButton1.png" id="20_jomq7"]
 
@@ -231,6 +232,9 @@ _data = {
 "idle": SubResource("Animation_bgy5b")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpau8"]
+size = Vector2(59, 93)
+
 [node name="Room1" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
@@ -334,6 +338,7 @@ label_settings = ExtResource("15_3b7ed")
 position = Vector2(137, -1)
 
 [node name="Sprite" type="Sprite2D" parent="You/Hand"]
+visible = false
 position = Vector2(81, 50)
 texture = ExtResource("19_1knhi")
 hframes = 2
@@ -367,5 +372,25 @@ offset_top = 51.0
 offset_right = 154.0
 offset_bottom = 95.0
 texture_normal = ExtResource("20_jomq7")
+
+[node name="HandCard" type="Control" parent="You/Hand"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 88.0
+offset_bottom = 43.0
+
+[node name="CardTexture" type="TextureRect" parent="You/Hand/HandCard"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_jur16")
+
+[node name="Area" type="Area2D" parent="You/Hand/HandCard"]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="You/Hand/HandCard/Area"]
+position = Vector2(33.5, 50.5)
+shape = SubResource("RectangleShape2D_rpau8")
 
 [connection signal="button_up" from="You/Hand/TextureButton" to="You" method="_on_texture_button_button_up"]

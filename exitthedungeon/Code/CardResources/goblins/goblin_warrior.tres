@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://br24ajl6f7fku"]
 
 [ext_resource type="Script" path="res://Code/card management/cardData.gd" id="1_pj0v2"]
-[ext_resource type="Texture2D" uid="uid://cotk347atwl8n" path="res://Sprites/Cards/card_goblin3.png" id="2_cugfm"]
+[ext_resource type="Texture2D" uid="uid://cotk347atwl8n" path="res://Sprites/Cards/Enemies/Goblin/card_goblin3.png" id="2_cugfm"]
 
 [resource]
 script = ExtResource("1_pj0v2")

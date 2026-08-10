@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmm2pc0r1hn75"
-path="res://.godot/imported/card_potion_mayor.png-6d6d61c09a5f611cc3f3caca974b715c.ctex"
+uid="uid://bb74po6udc16r"
+path="res://.godot/imported/card_sword2.png-15f343d6157c3adff9a41860d39b0acf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cards/card_potion_mayor.png"
-dest_files=["res://.godot/imported/card_potion_mayor.png-6d6d61c09a5f611cc3f3caca974b715c.ctex"]
+source_file="res://Sprites/Cards/Weapons/card_sword2.png"
+dest_files=["res://.godot/imported/card_sword2.png-15f343d6157c3adff9a41860d39b0acf.ctex"]
 
 [params]
 
